@@ -57,17 +57,18 @@
            <div class="card">
              <span data-aos="flip-right" class="card-title">Get in Touch</span>
              <div class="card-content">
-               <form id="myform" method="POST">
+               <form id="myform" action="/Feedback" method="POST">
                  <div data-aos="flip-right" data-aos-delay="300">
-                  <input type="text" id="name" placeholder="Name"  pattern="[a-zA-Z][a-zA-Z ]{2,}" required>
+                  <input type="text" id="name" placeholder="Name" name="name" pattern="[a-zA-Z][a-zA-Z ]{2,}" required>
                  </div>
                  <div data-aos="flip-right" data-aos-delay="400">
-                  <input type="text" id="email" placeholder="Email" required>
+                  <input type="text" id="email" name="email" placeholder="Email" required>
                  </div>
                  <div data-aos="flip-right" data-aos-delay="500">
-                  <textarea type="text" id="msg" placeholder="Message" required></textarea>
+                  <textarea type="text" id="msg" name="msg" placeholder="Message" required></textarea>
                  </div>
-                 <input id="submit" type="submit" data-aos="flip-right" data-aos-delay="600" class="btn waves-effect">
+                 <input id="submit" type="submit" onclick="sendData()" data-aos="flip-right" data-aos-delay="600" class="btn waves-effect">
+                 
                </form>
              </div>
           </div>
@@ -111,7 +112,7 @@
                 <h2>Navigation</h2>
 
       <div class="content">
-                 <a href="../Home/Home.html"><div class="#">Home</div></a>
+                 <a href="../index.html"><div class="#">Home</div></a>
                   <a href="../Consultation/CONSULTATION.html"><div class="#">Consultation</div></a>
                     <a href="../Pharmacy/Pharmacy.html"><div class="#">Pharmacy</div></a>
                      <a href="../Covid/covid.html"><div class="#">Covid-19</div></a>
