@@ -201,3 +201,29 @@ function initMap() {
 };
 
 initMap().set(initMap);
+
+function redirect(){
+    window.location="../Home/Home.html"
+  }
+
+  function sendData(){
+    
+
+    fetch('http://localhost:3000/SignUp', {
+      method: 'POST',
+      body: JSON.stringify({
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          msg: document.getElementById('msg').value,
+         
+      }),
+      headers: {
+        'Content-type': 'application/json'
+      }
+    }).then((response) => {
+      window.location.href = '/Home/Home.html'
+    }).catch((e) => {
+      console.log(e)
+    })
+    redirect();
+  }
