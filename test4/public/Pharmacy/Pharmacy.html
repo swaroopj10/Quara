@@ -4,15 +4,13 @@
     <meta charset="utf-8">
     <title>Pharmacy</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
-    <link rel="stylesheet" type="text/css" href="Pharmacy.css">
-    <script>
-  function openForm(){
-      alert("Your Item has been added to the cart successfully");
-    }
-    </script>
+    <link rel="stylesheet" type="text/css" href="pharmacy.css">
     <link rel="icon" href="logotitle.png" type="image">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script type="text/javascript" src="pharmacy.js" async></script>
   </head>
   <body>
+      
     <section>
       <div class="altmsg">
     <div class="alert">
@@ -26,16 +24,24 @@
         <div class="header">
           <img src="logo.png" alt="logo" >
           </div>
+          <span class="input-filter">
+            <ion-icon name="search"></ion-icon><input type="text" name="" id="filter" class="filter" placeholder="Enter" onkeyup="searchMedicine()" />
+          </span>
+          <li class="cart">
+              <a href="cart.html">
+                  <ion-icon name="cart-outline"></ion-icon>Cart<span>0</span>
+              </a> 
+          </li>
           <h1 class="heading">PHARMA-CARE💊</h1>
         <h2 class="description">Choose from variety of medicines across various categories</h2>
         </div>
-        <div class="allcards">
+        <div class="allcards" id="allcards">
         <div class="medicinetype">
         <h2>COVID PREVENTION</h2>
       </div>
-     <div class="card-wrapper">
+     <div class="card-wrapper" id="card-wrapper">
     <div class="card">
-    <img src="https://www.salontrusted.com/img/shp/SH-FACEMASK_S.jpg" class="medicineimg" alt="medicine">
+    <img src="images/facemask.jpg" class="medicineimg" alt="medicine">
     <div class="card-body">
       <h5 class="medicinename">3 Ply Disposable Face Mask(Pack of 50)</h5>
       <p class="medicinemfr">Mfr: Eliph Nutrition Pvt Ltd</p>
@@ -51,11 +57,11 @@
        <div class="num">
        <input class="numberbox" type="number" id="number" value="1" min="1" max="5" />
        </div>
-       <button class="open-button" onclick="openForm()">🛒 ADD TO CART</button>
+       <a class="add-cart"  href="javascript:void(0)">🛒 ADD TO CART</a>
     </div>
   </div>
   <div class="card">
-  <img src="https://res.cloudinary.com/du8msdgbj/image/upload/l_watermark_346,w_690,h_700/a_ignore,w_690,h_700,c_pad,q_auto,f_auto/v1594106703/vbkbqwnhjdmx7ebkuvt7.png" class="medicineimg" alt="medicine">
+  <img src="images/nycil.jpg" class="medicineimg" alt="medicine">
   <div class="card-body">
     <h5 class="medicinename">Nycil Herbal Hand Sanitizer</h5>
     <p class="medicinemfr">Mfr: Zydus Wellness Product Ltd</p>
@@ -71,11 +77,11 @@
      <div class="num">
      <input class="numberbox" type="number" id="number" value="1" min="1" max="5" />
      </div>
-     <button class="open-button" onclick="openForm()">🛒 ADD TO CART</button>
+     <a class="add-cart" href="javascript:void(0)">🛒 ADD TO CART</a>
   </div>
 </div>
 <div class="card">
-<img src="https://static.countdown.co.nz/assets/product-images/zoom/9300701420888.jpg" class="medicineimg" alt="medicine">
+<img src="images/wipes.jpg" class="medicineimg" alt="medicine">
 <div class="card-body">
   <h5 class="medicinename">Sanitizing Wipes (70 Each) Pack of 2</h5>
   <p class="medicinemfr">Mfr: Delhi Mediart Private Limited</p>
@@ -91,36 +97,36 @@
    <div class="num">
    <input class="numberbox" type="number" id="number" value="1" min="1" max="5" />
    </div>
-   <button class="open-button" onclick="openForm()">🛒 ADD TO CART</button>
+   <a class="add-cart" href="javascript:void(0)">🛒 ADD TO CART</a>
 </div>
 </div>
 <div class="card">
-<img src="https://res.cloudinary.com/du8msdgbj/image/upload/l_watermark_346,w_240,h_240/a_ignore,w_240,h_240,c_fit,q_auto,f_auto/v1604913188/yoffawmcxzm2lffgsdqn.jpg" class="medicineimg" alt="medicine">
+<img src="images/dettol.jpg" class="medicineimg" alt="medicine">
 <div class="card-body">
   <h5 class="medicinename">Dettol Combo Pack(550ml)</h5>
   <p class="medicinemfr">Mfr: Reckitt Benckiser</p>
   <div class="priceslash">
   <del>
-  <span class="amount">Rs.426.91</span>
+  <span class="amount">Rs.426.00</span>
   </del>
   <span class="discount">(11% OFF)</span>
   <ins>
-   <span class="amount">Rs.376.91</span>
+   <span class="amount">Rs.376.00</span>
    </ins>
    </div>
    <div class="num">
    <input class="numberbox" type="number" id="number" value="1" min="1" max="5" />
    </div>
-   <button class="open-button" onclick="openForm()">🛒 ADD TO CART</button>
+   <a class="add-cart" href="javascript:void(0)">🛒 ADD TO CART</a>
 </div>
 </div>
   </div>
   <div class="medicinetype">
       <h2>Mineral Supplements</h2>
     </div>
-    <div class="card-wrapper">
+    <div class="card-wrapper" id="card-wrapper">
     <div class="card">
-    <img src="https://n4.sdlcdn.com/imgs/h/p/8/NutriLeon-Calcium-Vitamin-D3-Supplement-SDL467634804-1-b81d4.png" class="medicineimg" alt="medicine">
+    <img src="images/calcium.jpg" class="medicineimg" alt="medicine">
     <div class="card-body">
   <h5 class="medicinename">NutriLeon Calcium Vitamin D3 Tablet</h5>
   <p class="medicinemfr">Mfr: Inlife Pharma Pvt Ltd</p>
@@ -136,11 +142,11 @@
    <div class="num">
    <input class="numberbox" type="number" id="number" value="1" min="1" max="5" />
    </div>
-   <button class="open-button" onclick="openForm()">🛒 ADD TO CART</button>
+   <a class="add-cart" href="javascript:void(0)">🛒 ADD TO CART</a>
 </div>
 </div>
 <div class="card">
-<img src="https://res.cloudinary.com/du8msdgbj/image/upload/l_watermark_346,w_690,h_700/a_ignore,w_690,h_700,c_pad,q_auto,f_auto/v1598444918/z96tp85ifsvhv3f8tt5z.png" class="medicineimg" alt="medicine">
+<img src="images/zincovit.jpg" class="medicineimg" alt="medicine">
 <div class="card-body">
   <h5 class="medicinename">Zincovit Tablet</h5>
   <p class="medicinemfr">Mfr:  Apex Laboratories Pvt Ltd</p>
@@ -150,17 +156,17 @@
   </del>
   <span class="discount">(10% OFF)</span>
   <ins>
-   <span class="amount">Rs.94.50</span>
+   <span class="amount">Rs.94.00</span>
    </ins>
    </div>
    <div class="num">
    <input class="numberbox" type="number" id="number" value="1" min="1" max="5" />
    </div>
-   <button class="open-button" onclick="openForm()">🛒 ADD TO CART</button>
+   <a class="add-cart" href="javascript:void(0)">🛒 ADD TO CART</a>
 </div>
 </div>
 <div class="card">
-<img src="https://res.cloudinary.com/du8msdgbj/image/upload/a_ignore,w_380,h_380,c_fit,q_auto,f_auto/v1538120083/kxl9qneeyizl3sdzlye5.png" class="medicineimg" alt="medicine">
+<img src="images/revital.jpg" class="medicineimg" alt="medicine">
 <div class="card-body">
   <h5 class="medicinename">Revital H Woman Tablet</h5>
   <p class="medicinemfr">Sun Pharmaceutical Industries Ltd</p>
@@ -176,11 +182,11 @@
    <div class="num">
    <input class="numberbox" type="number" id="number" value="1" min="1" max="5" />
    </div>
-   <button class="open-button" onclick="openForm()">🛒 ADD TO CART</button>
+   <a class="add-cart" href="javascript:void(0)">🛒 ADD TO CART</a>
 </div>
 </div>
 <div class="card">
-<img src="https://cdn.shopify.com/s/files/1/1463/4916/products/41L7ujez3zL_160x160.jpg?v=1600094656" class="medicineimg" alt="medicine">
+<img src="images/chic.jpg" class="medicineimg" alt="medicine">
 <div class="card-body">
   <h5 class="medicinename">Chicnutrix Bounce Hair Recovery Complex</h5>
   <p class="medicinemfr">Mfr: Luxifer Beauty Nutrition Pvt Ltd</p>
@@ -196,16 +202,16 @@
    <div class="num">
    <input class="numberbox" type="number" id="number" value="1" min="1" max="5" />
    </div>
-   <button class="open-button" onclick="openForm()">🛒 ADD TO CART</button>
+   <a class="add-cart" href="javascript:void(0)">🛒 ADD TO CART</a>
 </div>
 </div>
 </div>
 <div class="medicinetype">
     <h2>FEVER AND PAIN MANAGEMENT</h2>
   </div>
-  <div class="card-wrapper">
+  <div class="card-wrapper" id="card-wrapper">
 <div class="card">
-<img src="https://res.cloudinary.com/du8msdgbj/image/upload/l_watermark_346,w_480,h_480/a_ignore,w_480,h_480,c_fit,q_auto,f_auto/v1606819207/b45s7bsxwjktox00yttq.png" class="medicineimg" alt="medicine">
+<img src="images/digital.jpg" class="medicineimg" alt="medicine">
 <div class="card-body">
   <h5 class="medicinename">Thermometer and Pulse Oximeter</h5>
   <p class="medicinemfr">Mfr: Vandelay Pvt Ltd</p>
@@ -221,17 +227,17 @@
    <div class="num">
    <input class="numberbox" type="number" id="number" value="1" min="1" max="5" />
    </div>
-   <button class="open-button" onclick="openForm()">🛒 ADD TO CART</button>
+   <a class="add-cart" href="javascript:void(0)">🛒 ADD TO CART</a>
 </div>
 </div>
 <div class="card">
-<img src="https://5.imimg.com/data5/EM/DX/GK/SELLER-37869803/calpol-tablet-500x500.jpg" class="medicineimg" alt="medicine">
+<img src="images/calpol.jpg" class="medicineimg" alt="medicine">
 <div class="card-body">
   <h5 class="medicinename">Calpol Tablet</h5>
   <p class="medicinemfr">Mfr: GSK Pvt Ltd</p>
   <div class="priceslash">
   <del>
-  <span class="amount">Rs.30.25</span>
+  <span class="amount">Rs.30.00</span>
   </del>
   <span class="discount">(7% OFF)</span>
   <ins>
@@ -241,11 +247,11 @@
    <div class="num">
    <input class="numberbox" type="number" id="number" value="1" min="1" max="5" />
    </div>
-   <button class="open-button" onclick="openForm()">🛒 ADD TO CART</button>
+   <a class="add-cart" href="javascript:void(0)">🛒 ADD TO CART</a>
 </div>
 </div>
 <div class="card">
-<img src="https://www.drmedapp.com/wp-content/uploads/2018/08/digital-thermometer.jpg" class="medicineimg" alt="medicine">
+<img src="images/digi.jpg" class="medicineimg" alt="medicine">
 <div class="card-body">
   <h5 class="medicinename">Dr.Odin Digital Thermometer</h5>
   <p class="medicinemfr">Mfr: Netgen World</p>
@@ -261,11 +267,11 @@
    <div class="num">
    <input class="numberbox" type="number" id="number" value="1" min="1" max="5" />
    </div>
-   <button class="open-button" onclick="openForm()">🛒 ADD TO CART</button>
+   <a class="add-cart" href="javascript:void(0)">🛒 ADD TO CART</a>
 </div>
 </div>
 <div class="card">
-<img src="https://i-cf5.gskstatic.com/content/dam/cf-consumer-healthcare/panadol/en_in/adult/productshots/crocincoldnflumax/455x455.jpg?auto=format" class="medicineimg" alt="medicine">
+<img src="images/crocin.jpg" class="medicineimg" alt="medicine">
 <div class="card-body">
   <h5 class="medicinename">Crocin Max</h5>
   <p class="medicinemfr">Mfr: GSK Pvt Ltd</p>
@@ -275,22 +281,22 @@
   </del>
   <span class="discount">(12% OFF)</span>
   <ins>
-   <span class="amount">Rs.35.20</span>
+   <span class="amount">Rs.35.00</span>
    </ins>
    </div>
    <div class="num">
    <input class="numberbox" type="number" id="number" value="1" min="1" max="5" />
    </div>
-   <button class="open-button" onclick="openForm()">🛒 ADD TO CART</button>
+   <a class="add-cart" href="javascript:void(0)">🛒 ADD TO CART</a>
 </div>
 </div>
 </div>
 <div class="medicinetype">
     <h2>BABY CARE</h2>
   </div>
-  <div class="card-wrapper">
+  <div class="card-wrapper" id="card-wrapper">
 <div class="card">
-<img src="https://b3h2.scene7.com/is/image/BedBathandBeyond/184579020503659p?$690$&wid=690&hei=690" class="medicineimg" alt="medicine">
+<img src="images/pampers.jpg" class="medicineimg" alt="medicine">
 <div class="card-body">
   <h5 class="medicinename">Pampers Dry Pants(Pack of 66)</h5>
   <p class="medicinemfr">Mfr: Pampers Pvt Ltd</p>
@@ -300,17 +306,17 @@
   </del>
   <span class="discount">(20% OFF)</span>
   <ins>
-   <span class="amount">Rs.715.20</span>
+   <span class="amount">Rs.715.00</span>
    </ins>
    </div>
    <div class="num">
    <input class="numberbox" type="number" id="number" value="1" min="1" max="5" />
    </div>
-   <button class="open-button" onclick="openForm()">🛒 ADD TO CART</button>
+   <a class="add-cart" href="javascript:void(0)">🛒 ADD TO CART</a>
 </div>
 </div>
 <div class="card">
-<img src="https://www.medsindia.in/assets/images/product_image/1522064149-ENT0013.jpg" class="medicineimg" alt="medicine">
+<img src="images/bena.jpg" class="medicineimg" alt="medicine">
 <div class="card-body">
   <h5 class="medicinename">Benadryl Kids Cough Syrup</h5>
   <p class="medicinemfr">Mfr: Infolite Pvt Ltd</p>
@@ -320,17 +326,17 @@
   </del>
   <span class="discount">(9% OFF)</span>
   <ins>
-   <span class="amount">Rs.109.20</span>
+   <span class="amount">Rs.109.00</span>
    </ins>
    </div>
    <div class="num">
    <input class="numberbox" type="number" id="number" value="1" min="1" max="5" />
    </div>
-   <button class="open-button" onclick="openForm()">🛒 ADD TO CART</button>
+   <a class="add-cart" href="javascript:void(0)">🛒 ADD TO CART</a>
 </div>
 </div>
 <div class="card">
-<img src="https://image.babydestination.com/wp-content/uploads/2018/01/Nasal-Drop-1.png" class="medicineimg" alt="medicine">
+<img src="images/nasi.jpg" class="medicineimg" alt="medicine">
 <div class="card-body">
   <h5 class="medicinename">Nasivion Kids Nasal Drop </h5>
   <p class="medicinemfr">Mfr: Merck Pvt Ltd</p>
@@ -346,11 +352,11 @@
    <div class="num">
    <input class="numberbox" type="number" id="number" value="1" min="1" max="5" />
    </div>
-   <button class="open-button" onclick="openForm()">🛒 ADD TO CART</button>
+   <a class="add-cart" href="javascript:void(0)">🛒 ADD TO CART</a>
 </div>
 </div>
 <div class="card">
-<img src="https://images-na.ssl-images-amazon.com/images/I/81%2BjQkH%2BzgL._SL1500_.jpg" class="medicineimg" alt="medicine">
+<img src="images/cerelac.jpg" class="medicineimg" alt="medicine">
 <div class="card-body">
   <h5 class="medicinename">Cerelac Wheat Apple Cereal</h5>
   <p class="medicinemfr">Mfr: Nestle Pvt Ltd</p>
@@ -366,7 +372,7 @@
    <div class="num">
    <input class="numberbox" type="number" id="number" value="1" min="1" max="5" />
    </div>
-   <button class="open-button" onclick="openForm()">🛒 ADD TO CART</button>
+   <a class="add-cart" href="javascript:void(0)">🛒 ADD TO CART</a>
 </div>
 </div>
 </div>
@@ -410,7 +416,7 @@ Address</h2>
       <h2>Navigation</h2>
 
 <div class="content">
-         <a href="../Home/Home.html"><div class="h">Home</div></a>
+         <a href="../index.html"><div class="h">Home</div></a>
          <a href="../Consultation/CONSULTATION.html"><div class="h">Consultation</div></a>
          <a href="Pharmacy.html"><div class="h">Pharmacy</div></a>
          <a href="../Covid/covid.html"><div class="h">Covid-19</div></a>
