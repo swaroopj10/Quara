@@ -25,10 +25,10 @@ const consultationSchema= new mongoose.Schema({
 
 //collection creation
 const Patientdetails =new mongoose.model("Patientdetails",consultationSchema);
-var db = mongoose.connection;
+//var db = mongoose.connection;
 
 
-var   app=express()
+const app=express()
 
 
 
@@ -48,16 +48,23 @@ router.post('/Consultation', function(req,res){
 		"name":name,
 		"email": email,
 		"phone": phone,
-        "doctor":doctor,
+    "doctor":doctor,
 	}
-db.collection('Patientdetails').insertOne(data,function(err, collection){
-		if (err) throw err;
-		console.log("Appointment Booked Successfully");
-        
-			
-	});
-		
-	return res.redirect('Consultation/confirmation.html');
-})
 
+	const patientdetails = new Patientdetails(data)
+
+	patientdetails.save((err, doc) => {
+		if(err){
+			console.log(err)
+		}
+
+		console.log("doc", doc)
+		console.log("Appointment booked successfully")
+		
+	})
+        
+	return res.redirect('Consultation/confirmation.html');
+			
+});
+		
 module.exports = router;
