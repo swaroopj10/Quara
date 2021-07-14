@@ -16,11 +16,7 @@ db.once('open', function(callback){
 
 
 
-
-
 var app=express()
-
-
 
 app.use(express.json());
 app.use(express.static('public'));
@@ -29,31 +25,36 @@ app.use(express.urlencoded({
 }));
 
 app.post('/payment', function(req,res){
-	var fullname = req.body.name;
-    var Address=req.body.Address;
-    var zip=req.body.zip-code;
-	var card_holder_name=req.body.name_card_holder;
-    var card_number=req.body.name_card_holder;
+	var fullname= req.body.Fullname;
+	var address = req.body.Address;
+	var zip =req.body.zip;
+	var card_holders_name=req.body.Card_holders_name;
+	var card_number=req.body.Card_number;
+	var exp_month=req.body.Expiry_month;
+	var exp_year=req.body.Expiry_year;
+	var cvv=req.body.CVC_number;
 	
 
 	var data = {
-        "Fullname":fullname,
-        "Address":Address,
-        "Zip":zip,
-        "Card holder name":card_holder_name,
-        "card number":card_number,
-		
-		
+		"First Name":fullname,
+		"Last Name":address,
+		"Zip": zip,
+		"Card_Holders_name": card_holders_name,
+		"Card_holders_number":card_number,
+		"Expiry_Month":exp_month,
+		"Expiry_Year":exp_year,
+		"CVV Number":cvv,
+        
 	}
 db.collection('PaymentDetails').insertOne(data,function(err, collection){
 		if (err) throw err;
-		console.log("Appointment Booked Successfully");
+		console.log("Payment Done Successfully");
         
 			
 	});
 	console.log(data);
 		
-	return res.redirect('payment/payment.html');
+	return res.redirect('payment.html');
 })
 
 
