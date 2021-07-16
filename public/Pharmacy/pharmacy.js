@@ -3,7 +3,7 @@ function searchMedicine()
   const input=document.getElementById('filter').value.toUpperCase();
   const CardContainer=document.getElementById('allcards');
   const cards= CardContainer.getElementsByClassName('card');
-  console.log(cards);
+ 
 
 
   for(let i=0; i< cards.length;i++){
