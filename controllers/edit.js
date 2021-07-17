@@ -5,6 +5,7 @@ var flash = require('express-flash');
 var ejs = require('ejs');
 var path = require('path');
 
+
 const app = express()
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '../views'));
@@ -25,20 +26,24 @@ router.get('/adminLogin', function(req, res, next) {
     return res.render('adminLogin.ejs');
 });
 
+
+
 router.post('/adminLogin', function(req, res, next) {
     User.findOne({ email: req.body.email }, function(err, data) {
         if (data) {
 
             if (data.password == req.body.password) {
                 req.session.userId = data.unique_id;
-                res.render('admin.ejs')
+                 res.redirect('/admin')
                 console.log("Success")
 
             } else {
-                res.send({ "Success": "Wrong password!" });
+                res.render('adminlogin.ejs');
+                console.log("Incorrect Password")
             }
         } else {
-            res.send({ "Success": "This Email Is not regestered!" });
+            res.render('adminLogin.ejs')
+            console.log("Email not registered")
         }
     });
 });

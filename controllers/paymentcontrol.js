@@ -1,18 +1,10 @@
 var express= require("express");
 var bodyParser= require("body-parser");
-
+var router = express.Router();
 const mongoose = require('mongoose');
 
-mongoose.connect("mongodb://localhost:27017/payment",{
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-});
-var db=mongoose.connection;
-db.on('error', console.log.bind(console, "Connection Error"));
-db.once('open', function(callback){
-    console.log("Connection Succeeded");
-})
+var db = mongoose.connection;
+mongoose.set('useCreateIndex', true);
 
 
 
@@ -23,8 +15,7 @@ app.use(express.static('public'));
 app.use(express.urlencoded({
 	extended: true
 }));
-
-app.post('/payment', function(req,res){
+router.post('/payment', function(req,res){
 	var fullname= req.body.Fullname;
 	var address = req.body.Address;
 	var zip =req.body.zip;
@@ -64,27 +55,8 @@ app.post('/payment', function(req,res){
 		if(err) throw err
 		console.log("Payement done successfully")
 	})
-
-
-	// db.collection('PaymentDetails').insertOne(data,function(err, collection){
-	// 	if (err) throw err;
-	// 	console.log("Payment Done Successfully");
-        
-			
-	// });
-	console.log(data);
 		
-	return res.redirect('payment.html');
+	return res.redirect('/confirm');
 })
 
-
-
-app.get('/',function(req,res){
-res.set({
-	'Access-control-Allow-Origin': '*'
-	});
-return res.redirect('payment.html');
-}).listen(3000)
-
-
-console.log("Server listening at port 3000");
+module.exports = router;

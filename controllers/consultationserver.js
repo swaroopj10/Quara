@@ -37,8 +37,6 @@ router.post('/Consultation', function(req,res){
 		if(err){
 			console.log(err)
 		}
-
-		console.log("doc", doc)
 		console.log("Appointment booked successfully")
 		
 	})

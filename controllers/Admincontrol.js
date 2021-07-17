@@ -13,7 +13,7 @@ app.set('views', path.join(__dirname, '../views'));
 app.use(express.static(path.join(__dirname + '../views/css')));
 
 router.get('/admin', async function(req, res, next) {
-    User.findOne({ unique_id: req.session.userId }, function(err, data) {
+    User.findOne({ unique_id: req.session.userId }, async function(err, data) {
 
         if (!data) {
             res.redirect('/');

@@ -44,11 +44,13 @@ var index2 = require('./controllers/consultationserver')
 app.use(index2)
 var index3 = require('./controllers/Formserver')
 app.use(index3)
-
+var index4 = require('./controllers/Admincontrol')
+app.use(index4)
+var index5 =require('./controllers/paymentcontrol')
+app.use(index5)
 app.get('/login', (req, res) => {
     res.sendFile(__dirname + '/public/Login/Login-SignUp.html')
 })
-
 
 
 app.get('/home', (req,res) => {
@@ -56,7 +58,9 @@ app.get('/home', (req,res) => {
 })
 
 
-
+app.get('/confirm', (req, res) => {
+    res.sendFile(__dirname + '/public/Payment/confirmation1.html')
+})
 
 const PORT = process.env.PORT || 3000
 app.listen(PORT, ()=> {
