@@ -5,27 +5,7 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 mongoose.set('useCreateIndex', true);
 
-//SCHEMA
-const consultationSchema= new mongoose.Schema({
-	name:{
-		type: String,
-		required: true
-	},
-	email:{
-		type: String,
-		required: true,
-		unique: true
-	},
-	phone:{
-		type: Number,
-		required:true
-	},
-	doctor:String
-});
-
-//collection creation
-const Patientdetails =new mongoose.model("Patientdetails",consultationSchema);
-//var db = mongoose.connection;
+const Patientdetails = require('../models/PatientDetails')
 
 
 const app=express()
